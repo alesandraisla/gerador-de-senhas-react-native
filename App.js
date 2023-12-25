@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Slider from '@react-native-community/slider'
+
 
 export default function App() {
   const [size, setSize] = useState(10)
@@ -27,6 +29,16 @@ export default function App() {
       <Text style={styles.title}>{size} Caracteres</Text>
 
       <View style={styles.area}>
+      <Slider 
+          style={{ height: 50}}
+          minimumValue={6}
+          maximumValue={20}
+          maximumTrackTintColor='#087dff'
+          minimumTrackTintColor='#b92c68'
+          thumbTintColor='#51194e'
+          value={size}
+          onValueChange={(value) => setSize(value.toFixed(0)) }
+        />
       </View>
 
       <TouchableOpacity style={styles.button} onPress={generatePassword}>
