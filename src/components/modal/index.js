@@ -1,6 +1,6 @@
 import { View, StyleSheet, Text, Pressable, TouchableOpacity } from "react-native";
 
-export function ModalPassword(){
+export function ModalPassword({password, handleClose}){
     return(
         <View style={styles.container}>
             <View style={styles.content}>
@@ -8,11 +8,11 @@ export function ModalPassword(){
                     Senha gerada
                 </Text>
                 <Pressable style={styles.innerPassword}>
-                    <Text style={styles.textPassword}>Teste</Text>
+                    <Text style={styles.textPassword}>{password}</Text>
                 </Pressable>
 
                 <View style={styles.buttonArea}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={handleClose}>
                         <Text style={styles.textButton}>Voltar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.button, styles.buttonSave]}>
